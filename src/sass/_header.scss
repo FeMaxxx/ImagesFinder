@@ -1,0 +1,29 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: red;
+  height: 60px;
+}
+
+.search-form {
+  margin-right: 20px;
+}
+
+.search-form__input {
+  padding-left: 10px;
+  padding-right: 10px;
+
+  height: 40px;
+  width: 250px;
+  border: 3px solid blueviolet;
+  border-radius: 5px;
+}
+
+.submit-button {
+  width: 60px;
+  height: 40px;
+  border: 3px solid blueviolet;
+  border-radius: 5px;
+}
