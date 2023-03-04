@@ -1,6 +1,6 @@
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
-import { loadMoreBtnEl } from "./сreate-list";
+import { loadMoreBtnEl } from "../index";
 
 let gallery = new SimpleLightbox(".gallery a", {});
 
