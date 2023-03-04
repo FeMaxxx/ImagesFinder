@@ -1,9 +1,8 @@
-import Notiflix from "notiflix";
-import "notiflix/dist/notiflix-3.2.6.min.css";
-
 import { ImagesApi } from "./сreate-list-api";
 import { renderData } from "./render-data";
 import { renderMore } from "./render-data";
+import Notiflix from "notiflix";
+import "notiflix/dist/notiflix-3.2.6.min.css";
 
 const formEl = document.querySelector("#search-form");
 export const loadMoreBtnEl = document.querySelector(".load-more");
