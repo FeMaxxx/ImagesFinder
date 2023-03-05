@@ -8,6 +8,8 @@ const formEl = document.querySelector("#search-form");
 const bodyEl = document.querySelector("body");
 const { searchQuery } = formEl.elements;
 
+let functionPerformed = false;
+
 formEl.addEventListener("submit", findImages);
 window.addEventListener("scroll", throttle(findMoreImages, 500));
 
