@@ -6,10 +6,11 @@ const BACE_URL = "https://pixabay.com/api/";
 const buttonsList = document.querySelector(".buttons-list");
 const { all } = buttonsList.children;
 
-const per_page = 40;
+export const perPage = 40;
 let pageNumber = 1;
-let image_type = "all";
+let imageType = "all";
 let prevTdEl = all;
+// const totalPages = Math.ceil(images.data.totalHits / per_page);
 
 buttonsList.addEventListener("click", photoBtnCheck);
 
@@ -26,12 +27,12 @@ function photoBtnCheck(e) {
     prevTdEl = e.target.parentNode;
     prevTdEl.classList.add("active");
 
-    image_type = prevTdEl.attributes.name.value;
+    imageType = prevTdEl.attributes.name.value;
 
     return;
   }
 
-  image_type = e.target.attributes.name.value;
+  imageType = e.target.attributes.name.value;
 
   e.target.classList.add("active");
 
@@ -44,25 +45,16 @@ export const getImages = async (find) => {
     params: {
       key: "34101690-d1afb1df4c50c6485dfb9e98d",
       q: find,
-      image_type: image_type,
+      image_type: imageType,
       orientation: "horizontal",
       safesearch: true,
-      per_page: per_page,
+      per_page: perPage,
       page: pageNumber,
     },
   };
 
-  const images = await axios.get(BACE_URL, config);
-  let totalPages = Math.ceil(images.data.totalHits / per_page);
-
-  if (pageNumber > totalPages) {
-    Notiflix.Notify.info("Sorry we have no more images on this topic");
-
-    return;
-  }
-
   try {
-    pageNumber += 1;
+    const images = await axios.get(BACE_URL, config);
 
     return images;
   } catch {
@@ -72,4 +64,12 @@ export const getImages = async (find) => {
 
 export function setPageNumber() {
   pageNumber = 1;
+}
+
+export function plusPageNumber() {
+  pageNumber += 1;
+}
+
+export function getPageNumber() {
+  return pageNumber;
 }

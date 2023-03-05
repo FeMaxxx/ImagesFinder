@@ -1,4 +1,10 @@
-import { getImages, setPageNumber } from "./JS/create-list-api";
+import {
+  getImages,
+  setPageNumber,
+  plusPageNumber,
+  perPage,
+  getPageNumber,
+} from "./JS/create-list-api";
 import { renderData, renderMore } from "./JS/render-data";
 import throttle from "lodash.throttle";
 import Notiflix from "notiflix";
@@ -8,10 +14,13 @@ const formEl = document.querySelector("#search-form");
 const bodyEl = document.querySelector("body");
 const { searchQuery } = formEl.elements;
 
-let functionPerformed = false;
+let totalPages = 0;
+
+let functionPerformed = true;
+
+const throttleFindMoreImages = throttle(findMoreImages, 500);
 
 formEl.addEventListener("submit", findImages);
-window.addEventListener("scroll", throttle(findMoreImages, 500));
 
 function findImages(e) {
   e.preventDefault();
@@ -24,6 +33,9 @@ function findImages(e) {
 
   getImages(inputValue).then((images) => {
     const totalHits = images.data.totalHits;
+    totalPages = Math.ceil(totalHits / perPage);
+
+    document.addEventListener("scroll", throttleFindMoreImages);
 
     if (images.data.total === 0) {
       Notiflix.Notify.failure(
@@ -35,11 +47,22 @@ function findImages(e) {
 
     Notiflix.Notify.success(`We are find ${totalHits} images`);
 
+    plusPageNumber();
     renderData(images.data.hits);
   });
 }
 
 function findMoreImages() {
+  if (
+    getPageNumber() - 1 >= totalPages &&
+    bodyEl.getBoundingClientRect().bottom < 1500
+  ) {
+    Notiflix.Notify.info("Sorry we have no more images on this topic");
+    document.removeEventListener("scroll", throttleFindMoreImages);
+
+    return;
+  }
+
   if (bodyEl.getBoundingClientRect().bottom > 1500) {
     functionPerformed = false;
   }
@@ -48,6 +71,7 @@ function findMoreImages() {
     functionPerformed = true;
 
     getImages(searchQuery.value).then((images) => {
+      plusPageNumber();
       renderMore(images.data.hits);
     });
   }
