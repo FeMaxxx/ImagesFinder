@@ -1,14 +1,60 @@
 .header {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
   display: flex;
   align-items: center;
-  justify-content: center;
+
+  width: 1500px;
 
   background-color: red;
   height: 60px;
 }
+.active {
+  background-color: red;
+}
+
+.buttons-list {
+  display: flex;
+  gap: 15px;
+
+  li {
+    display: flex;
+  }
+}
+
+.buttons-list__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+
+  border: 2px solid blueviolet;
+  border-bottom-right-radius: 15px;
+  border-top-left-radius: 15px;
+}
+
+.buttons-list__item-center {
+  width: 60px;
+}
+
+.buttons-list__item-text {
+  transform: rotate(-45deg);
+  font-size: 12px;
+}
+
+.buttons-list__item-text-center {
+  transform: rotate(-30deg);
+}
 
 .search-form {
-  margin-right: 20px;
+  position: absolute;
+  top: 50%;
+  left: 49.5%;
+  transform: translate(-100%, -50%);
 }
 
 .search-form__input {
@@ -18,12 +64,14 @@
   height: 40px;
   width: 250px;
   border: 3px solid blueviolet;
-  border-radius: 5px;
+  border-top-left-radius: 15px;
 }
 
 .submit-button {
+  margin-left: -8px;
   width: 60px;
   height: 40px;
   border: 3px solid blueviolet;
-  border-radius: 5px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
