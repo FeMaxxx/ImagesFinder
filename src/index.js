@@ -21,6 +21,8 @@ function findImages(e) {
   setPageNumber();
 
   getImages(inputValue).then((images) => {
+    const totalHits = images.data.totalHits;
+
     if (images.data.total === 0) {
       Notiflix.Notify.failure(
         "Sorry, there are no images matching your search query. Please try again."
@@ -29,7 +31,7 @@ function findImages(e) {
       return;
     }
 
-    Notiflix.Notify.success(`We are find ${images.data.totalHits} images`);
+    Notiflix.Notify.success(`We are find ${totalHits} images`);
 
     renderData(images.data.hits);
   });

@@ -10,7 +10,6 @@ export function renderData(data) {
 
   galleryEl.innerHTML = markup;
   gallery.refresh();
-  loadMoreBtnEl.classList.remove("is-hidden");
 }
 
 export function renderMore(data) {

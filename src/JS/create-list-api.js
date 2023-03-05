@@ -1,9 +1,12 @@
 import axios from "axios";
+import Notiflix from "notiflix";
+import "notiflix/dist/notiflix-3.2.6.min.css";
 
 const BACE_URL = "https://pixabay.com/api/";
 const buttonsList = document.querySelector(".buttons-list");
 const { all } = buttonsList.children;
 
+const per_page = 40;
 let pageNumber = 1;
 let image_type = "all";
 let prevTdEl = all;
@@ -36,8 +39,6 @@ function photoBtnCheck(e) {
 }
 
 export const getImages = async (find) => {
-  id = "";
-
   const config = {
     baceURL: BACE_URL,
     params: {
@@ -46,14 +47,21 @@ export const getImages = async (find) => {
       image_type: image_type,
       orientation: "horizontal",
       safesearch: true,
-      per_page: 40,
+      per_page: per_page,
       page: pageNumber,
     },
   };
 
-  try {
-    const images = await axios.get(BACE_URL, config);
+  const images = await axios.get(BACE_URL, config);
+  let totalPages = Math.ceil(images.data.totalHits / per_page);
 
+  if (pageNumber > totalPages) {
+    Notiflix.Notify.info("Sorry we have no more images on this topic");
+
+    return;
+  }
+
+  try {
     pageNumber += 1;
 
     return images;
