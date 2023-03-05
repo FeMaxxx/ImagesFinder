@@ -51,7 +51,7 @@ export const getImages = async (find) => {
       image_type: image_type, //або illustration, vector, photo
       orientation: "horizontal",
       safesearch: true,
-      per_page: 4,
+      per_page: 40,
       page: pageNumber,
     },
   };

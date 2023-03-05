@@ -1,16 +1,21 @@
 import { getImages, setPageNumber } from "./JS/create-list-api";
 import { renderData, renderMore } from "./JS/render-data";
 
+import throttle from "lodash.throttle";
 import Notiflix from "notiflix";
 import "notiflix/dist/notiflix-3.2.6.min.css";
 
 const formEl = document.querySelector("#search-form");
 export const loadMoreBtnEl = document.querySelector(".load-more");
 
+const bodyEl = document.querySelector("body");
+
 const { searchQuery } = formEl.elements;
 
 formEl.addEventListener("submit", findImages);
 loadMoreBtnEl.addEventListener("click", findMoreImages);
+
+window.addEventListener("scroll", throttle(findMoreImages, 500));
 
 function findImages(e) {
   e.preventDefault();
@@ -23,18 +28,29 @@ function findImages(e) {
 
   getImages(inputValue).then((images) => {
     if (images.data.total === 0) {
-      console.log("no images");
+      Notiflix.Notify.failure(
+        "Sorry, there are no images matching your search query. Please try again."
+      );
+
       return;
     }
 
-    console.log(`We are find ${images.data.totalHits} images`);
+    Notiflix.Notify.success(`We are find ${images.data.totalHits} images`);
 
     renderData(images.data.hits);
   });
 }
 
 function findMoreImages() {
-  getImages(searchQuery.value).then((images) => {
-    renderMore(images.data.hits);
-  });
+  if (bodyEl.getBoundingClientRect().bottom > 1500) {
+    functionPerformed = false;
+  }
+
+  if (bodyEl.getBoundingClientRect().bottom < 1500 && !functionPerformed) {
+    functionPerformed = true;
+
+    getImages(searchQuery.value).then((images) => {
+      renderMore(images.data.hits);
+    });
+  }
 }
