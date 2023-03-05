@@ -1,5 +1,7 @@
 .header {
-  position: relative;
+  position: fixed;
+  width: 100%;
+  top: 0px;
 
   display: flex;
   align-items: center;
@@ -7,6 +9,10 @@
   height: 60px;
 
   background-color: #161b22;
+
+  .container {
+    overflow: auto;
+  }
 }
 
 .buttons-list {

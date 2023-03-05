@@ -24,6 +24,11 @@ formEl.addEventListener("submit", findImages);
 
 function findImages(e) {
   e.preventDefault();
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  });
 
   const inputValue = searchQuery.value.trim();
 
@@ -35,7 +40,7 @@ function findImages(e) {
     const totalHits = images.data.totalHits;
     totalPages = Math.ceil(totalHits / perPage);
 
-    document.addEventListener("scroll", throttleFindMoreImages);
+    window.addEventListener("scroll", throttleFindMoreImages);
 
     if (images.data.total === 0) {
       Notiflix.Notify.failure(
@@ -58,7 +63,7 @@ function findMoreImages() {
     bodyEl.getBoundingClientRect().bottom < 1500
   ) {
     Notiflix.Notify.info("Sorry we have no more images on this topic");
-    document.removeEventListener("scroll", throttleFindMoreImages);
+    window.removeEventListener("scroll", throttleFindMoreImages);
 
     return;
   }
