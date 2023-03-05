@@ -1,20 +1,14 @@
 import { getImages, setPageNumber } from "./JS/create-list-api";
 import { renderData, renderMore } from "./JS/render-data";
-
 import throttle from "lodash.throttle";
 import Notiflix from "notiflix";
 import "notiflix/dist/notiflix-3.2.6.min.css";
 
 const formEl = document.querySelector("#search-form");
-export const loadMoreBtnEl = document.querySelector(".load-more");
-
 const bodyEl = document.querySelector("body");
-
 const { searchQuery } = formEl.elements;
 
 formEl.addEventListener("submit", findImages);
-loadMoreBtnEl.addEventListener("click", findMoreImages);
-
 window.addEventListener("scroll", throttle(findMoreImages, 500));
 
 function findImages(e) {

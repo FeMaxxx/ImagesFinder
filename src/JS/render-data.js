@@ -1,8 +1,7 @@
 import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
-import { loadMoreBtnEl } from "../index";
 
-let gallery = new SimpleLightbox(".gallery a", {});
+let gallery = new SimpleLightbox(".gallery a");
 
 const galleryEl = document.querySelector(".gallery");
 

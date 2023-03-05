@@ -1,16 +1,13 @@
 import axios from "axios";
 
 const BACE_URL = "https://pixabay.com/api/";
-let pageNumber = 1;
-let id = "";
-let image_type = "all";
-
-// order "popular" або "latest"
-// editors_choice "true" або "false" фотографії які отримали вибір редактора
-
 const buttonsList = document.querySelector(".buttons-list");
 const { all } = buttonsList.children;
+
+let pageNumber = 1;
+let image_type = "all";
 let prevTdEl = all;
+
 buttonsList.addEventListener("click", photoBtnCheck);
 
 function photoBtnCheck(e) {
@@ -33,7 +30,6 @@ function photoBtnCheck(e) {
 
   image_type = e.target.attributes.name.value;
 
-  // e.target.style.backgroundColor = "teal";
   e.target.classList.add("active");
 
   prevTdEl = e.target;
@@ -46,9 +42,8 @@ export const getImages = async (find) => {
     baceURL: BACE_URL,
     params: {
       key: "34101690-d1afb1df4c50c6485dfb9e98d",
-      id: id,
       q: find,
-      image_type: image_type, //або illustration, vector, photo
+      image_type: image_type,
       orientation: "horizontal",
       safesearch: true,
       per_page: 40,
