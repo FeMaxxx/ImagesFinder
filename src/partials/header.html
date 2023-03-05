@@ -1,37 +1,43 @@
 <header class="header">
-  <div class="buttons-list">
-    <button class="buttons-list__item" type="button" name="photo">
-      <span class="buttons-list__item-text">photo</span>
-    </button>
+  <div class="constainer">
+    <div class="buttons-list">
+      <button class="buttons-list__item" type="button" name="photo">
+        <span class="buttons-list__item-text">photo</span>
+      </button>
 
-    <button
-      class="buttons-list__item buttons-list__item-center"
-      type="button"
-      name="illustration"
-    >
-      <span class="buttons-list__item-text buttons-list__item-text-center"
-        >illustration</span
+      <button
+        class="buttons-list__item buttons-list__item-center"
+        type="button"
+        name="illustration"
       >
-    </button>
+        <span class="buttons-list__item-text buttons-list__item-text-center"
+          >illustration</span
+        >
+      </button>
 
-    <button class="buttons-list__item" type="button" name="vector">
-      <span class="buttons-list__item-text">vector</span>
-    </button>
+      <button class="buttons-list__item" type="button" name="vector">
+        <span class="buttons-list__item-text">vector</span>
+      </button>
 
-    <button class="buttons-list__item active" type="button" name="all">
-      <span class="buttons-list__item-text">all</span>
-    </button>
+      <button class="buttons-list__item active" type="button" name="all">
+        <span class="buttons-list__item-text">all</span>
+      </button>
+    </div>
+
+    <form class="search-form" id="search-form">
+      <input
+        class="search-form__input"
+        type="text"
+        name="searchQuery"
+        autocomplete="off"
+        placeholder="Search images..."
+      />
+
+      <button class="submit-button" type="submit">
+        <svg class="input-svg" width="16" height="16">
+          <use href="./images/symbol-defs.svg#search"></use>
+        </svg>
+      </button>
+    </form>
   </div>
-
-  <form class="search-form" id="search-form">
-    <input
-      class="search-form__input"
-      type="text"
-      name="searchQuery"
-      autocomplete="off"
-      placeholder="Search images..."
-    />
-
-    <button class="submit-button" type="submit">Search</button>
-  </form>
 </header>

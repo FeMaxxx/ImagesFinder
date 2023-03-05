@@ -29,21 +29,25 @@ function marking(data) {
   <div class="photo-card">
     <a class="large-image" href="${el.largeImageURL}">
       <img class="image" width="100%" src="${el.webformatURL}" alt="${el.user}" loading="lazy" />
-    </a>
       <div class="info">
         <p class="info-item">
-          <b>likes: ${el.likes}</b>
+          <b>likes</b>
+          ${el.likes}
         </p>
         <p class="info-item">
-          <b>views: ${el.views}</b>
+          <b>views</b>
+          ${el.views}
         </p>
         <p class="info-item">
-          <b>comments: ${el.comments}</b>
+          <b>comments</b>
+          ${el.comments}
         </p>
         <p class="info-item">
-          <b>downloads: ${el.downloads}</b>
+          <b>downloads</b>
+          ${el.downloads}
         </p>
       </div>
+    </a>
   </div>
   `;
     })

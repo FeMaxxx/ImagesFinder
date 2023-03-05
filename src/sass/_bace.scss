@@ -1,5 +1,11 @@
+:root {
+  --primary-color: rgba(255, 255, 255, 0.862);
+  --hover-color: yellowgreen;
+  --animation: 200ms ease-out;
+}
+
 body {
-  background-color: yellowgreen;
+  background-color: #0d1117;
   font-weight: 400;
   font-size: 18px;
   line-height: 1.5;
@@ -27,6 +33,10 @@ img {
   display: block;
 }
 
+input {
+  outline: none;
+}
+
 h1,
 h2,
 h3,
@@ -39,8 +49,22 @@ p {
   padding: 0px;
 }
 
+.constainer {
+  width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
 .is-hidden {
   visibility: hidden;
   opacity: 0;
   pointer-events: none;
+}
+
+.active {
+  color: var(--hover-color) !important;
+  border-color: var(--hover-color) !important;
+  background-color: rgb(100, 100, 100) !important;
 }

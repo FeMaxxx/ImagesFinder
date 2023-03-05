@@ -13,6 +13,18 @@
 
 .photo-card {
   width: calc((1500px - 45px - 30px) / 4);
+  height: 290px;
+
+  border: 1px solid var(--primary-color);
+  border-radius: 5px;
+  background-color: #353740;
+  box-shadow: 1px 1px 5px 0.1px var(--primary-color);
+
+  &:hover,
+  &:focus {
+    border-color: var(--hover-color);
+    box-shadow: 1px 1px 5px 0.1px var(--hover-color);
+  }
 }
 
 .large-image {
@@ -25,7 +37,16 @@
 }
 
 .info {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px;
+
+  font-size: 16px;
+  color: var(--primary-color);
 }
 
 .info-item {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }

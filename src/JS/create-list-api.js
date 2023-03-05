@@ -4,13 +4,13 @@ const BACE_URL = "https://pixabay.com/api/";
 let pageNumber = 1;
 let id = "";
 let image_type = "all";
+
 // order "popular" або "latest"
 // editors_choice "true" або "false" фотографії які отримали вибір редактора
 
 const buttonsList = document.querySelector(".buttons-list");
 const { all } = buttonsList.children;
 let prevTdEl = all;
-
 buttonsList.addEventListener("click", photoBtnCheck);
 
 function photoBtnCheck(e) {
@@ -33,6 +33,7 @@ function photoBtnCheck(e) {
 
   image_type = e.target.attributes.name.value;
 
+  // e.target.style.backgroundColor = "teal";
   e.target.classList.add("active");
 
   prevTdEl = e.target;
