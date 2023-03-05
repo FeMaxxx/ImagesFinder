@@ -10,7 +10,6 @@ export const perPage = 40;
 let pageNumber = 1;
 let imageType = "all";
 let prevTdEl = all;
-// const totalPages = Math.ceil(images.data.totalHits / per_page);
 
 buttonsList.addEventListener("click", photoBtnCheck);
 
