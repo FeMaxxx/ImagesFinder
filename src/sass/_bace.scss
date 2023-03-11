@@ -5,7 +5,8 @@
 }
 
 body {
-  background-color: #0d1117;
+  // background-color: #151313;
+  background-color: #4d4e67;
   font-weight: 400;
   font-size: 18px;
   line-height: 1.5;
@@ -49,8 +50,9 @@ p {
   padding: 0px;
 }
 
-.constainer {
-  width: 1500px;
+.container {
+  max-width: 1500px;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   padding-left: 15px;

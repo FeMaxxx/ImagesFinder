@@ -1,0 +1,45 @@
+.pinki {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  z-index: 10;
+}
+
+.pinki-stuff {
+  img {
+    display: block;
+    position: fixed;
+
+    animation-name: rotate;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+  }
+}
+
+.mobile {
+  top: 70%;
+  left: 70%;
+}
+
+.toy {
+  top: 70%;
+  right: 60%;
+}
+
+.red-pokeboll {
+  bottom: 75%;
+  left: 50%;
+}
+
+.sopilka {
+  top: 27%;
+  right: 70%;
+}
+
+.blue-pokeboll {
+  top: 30%;
+  left: 75%;
+}

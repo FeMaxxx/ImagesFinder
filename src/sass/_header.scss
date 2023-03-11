@@ -6,17 +6,16 @@
   display: flex;
   align-items: center;
 
-  height: 60px;
-
-  background-color: #161b22;
+  height: 80px;
 
   .container {
-    overflow: auto;
+    display: flex;
+    justify-content: space-between;
   }
 }
 
 .buttons-list {
-  display: flex;
+  display: none;
   gap: 15px;
 
   li {
@@ -59,12 +58,18 @@
   transform: rotate(-22deg);
 }
 
-.search-form {
+.search-box {
   display: flex;
-  position: absolute;
-  top: 50%;
-  left: 49.5%;
-  transform: translate(-100%, -50%);
+}
+
+.search-form {
+  position: relative;
+  display: flex;
+  max-width: 250px;
+  margin-right: 20px;
+
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 
 .search-form__input {
@@ -72,10 +77,13 @@
   padding-right: 10px;
 
   height: 40px;
-  width: 250px;
+  width: 100%;
   border: 3px solid var(--primary-color);
-  border-right: 3px;
+
   border-top-left-radius: 15px;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+
   background-color: #353740;
   color: var(--primary-color);
 
@@ -88,26 +96,18 @@
 }
 
 .submit-button {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  right: 5px;
+
+  width: 30px;
+  height: 30px;
+  background: none;
+
   display: flex;
   justify-content: center;
   align-items: center;
-
-  width: 40px;
-  height: 40px;
-  border: 3px solid var(--primary-color);
-
-  background-color: #353740;
-  color: var(--primary-color);
-
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
-
-  transition: border-color var(--animation);
-
-  &:hover,
-  &:focus {
-    border-color: var(--hover-color);
-  }
 
   &:hover .input-svg,
   &:focus .input-svg {
@@ -118,7 +118,7 @@
 }
 
 .input-svg {
-  fill: dimgrey;
+  fill: #fff;
 
-  transition: fill 100ms ease-out, width 100ms ease-out, height 100ms ease-out;
+  transition: fill 100ms ease-out, width 50ms ease-out, height 50ms ease-out;
 }
