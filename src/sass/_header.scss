@@ -30,16 +30,13 @@
 
   height: 50px;
   width: 100%;
+  background: none;
+  color: var(--primary-color);
 
   border: 3px solid var(--primary-color);
-
   border-top-left-radius: 15px;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
-
-  background: none;
-
-  color: var(--primary-color);
 
   transition: border-color var(--animation);
 
@@ -54,14 +51,13 @@
   top: 50%;
   transform: translate(0, -50%);
   right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   width: 30px;
   height: 30px;
   background: none;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   &:hover .input-svg,
   &:focus .input-svg {
@@ -90,10 +86,17 @@
   border-radius: 25px;
   border-bottom-right-radius: 0;
 
+  transition: background var(--animation), border var(--animation),
+    color var(--animation);
+
+  &:hover,
+  &:focus {
+    border: 3px solid var(--hover-color);
+    color: var(--hover-color);
+  }
+
   &.theme {
     background: var(--light-color);
-
-    transition: background var(--animation);
   }
 }
 
