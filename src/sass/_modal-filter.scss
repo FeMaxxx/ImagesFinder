@@ -1,0 +1,43 @@
+.buttons-list {
+  display: none;
+  gap: 15px;
+
+  li {
+    display: flex;
+  }
+}
+
+.buttons-list__item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+
+  border: 2px solid var(--primary-color);
+  border-bottom-right-radius: 15px;
+  border-top-left-radius: 15px;
+  background-color: #353740;
+
+  font-size: 12px;
+  color: var(--primary-color);
+
+  transition: background-color var(--animation);
+
+  &:hover,
+  &:focus {
+    background-color: rgb(100, 100, 100) !important;
+  }
+}
+
+.buttons-list__item-center {
+  width: 70px;
+}
+
+.buttons-list__item-text {
+  transform: rotate(-45deg);
+}
+
+.buttons-list__item-text-center {
+  transform: rotate(-22deg);
+}

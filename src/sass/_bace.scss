@@ -1,16 +1,19 @@
 :root {
-  --primary-color: rgba(255, 255, 255, 0.862);
+  --primary-color: #fff;
+  --dark-color: #151313;
+  --light-color: #4d4e67;
   --hover-color: yellowgreen;
   --animation: 200ms ease-out;
 }
 
 body {
-  // background-color: #151313;
-  background-color: #4d4e67;
+  background-color: var(--dark-color);
   font-weight: 400;
   font-size: 18px;
   line-height: 1.5;
   letter-spacing: 0.02em;
+
+  transition: background-color var(--animation);
 }
 
 button {
