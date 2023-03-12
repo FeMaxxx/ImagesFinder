@@ -24,11 +24,9 @@ function marking(data) {
   const markup = data
     .map((el) => {
       return `
-  <div class="photo-card">
     <a class="large-image" href="${el.largeImageURL}">
       <img class="image" width="100%" src="${el.webformatURL}" alt="${el.user}" loading="lazy" />
     </a>
-  </div>
   `;
     })
     .join("");
