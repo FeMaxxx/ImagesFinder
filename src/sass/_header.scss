@@ -2,10 +2,11 @@
   position: relative;
   display: flex;
   align-items: center;
-  z-index: 50;
+  z-index: 60;
   height: 80px;
 
   .container {
+    position: relative;
     display: flex;
     gap: 20px;
     justify-content: space-between;
@@ -27,6 +28,7 @@
 .search-form__input {
   padding-left: 10px;
   padding-right: 10px;
+  font-size: 22px;
 
   height: 50px;
   width: 100%;
@@ -62,15 +64,14 @@
   &:hover .input-svg,
   &:focus .input-svg {
     fill: var(--hover-color);
-    width: 24px;
-    height: 24px;
+    transform: scale(1.2);
   }
 }
 
 .input-svg {
   fill: var(--primary-color);
 
-  transition: fill 100ms ease-out, width 50ms ease-out, height 50ms ease-out;
+  transition: fill 100ms ease-out, transform 50ms ease-out;
 }
 
 .header-buttons {

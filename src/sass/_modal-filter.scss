@@ -1,43 +1,96 @@
-.buttons-list {
-  display: none;
-  gap: 15px;
+.modal-hidden {
+  transform: translate(0, -150%);
+  opacity: 0;
+}
 
-  li {
-    display: flex;
+.modal-filter {
+  position: absolute;
+  top: 65px;
+  left: 15px;
+  padding: 30px 10px;
+  max-width: 230px;
+  width: 100%;
+  z-index: 100;
+
+  border: 5px solid var(--hover-color);
+  border-radius: 25px;
+  border-bottom-right-radius: 0;
+
+  backdrop-filter: blur(10px);
+
+  transition: transform var(--animation), opacity var(--animation);
+}
+
+.modal-filter__close-btn {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: none;
+
+  &:hover .modal-filter__close-btn-icon,
+  &:focus .modal-filter__close-btn-icon {
+    fill: var(--hover-color);
+    transform: scale(1.08);
   }
+}
+
+.modal-filter__close-btn-icon {
+  fill: rgba(207, 130, 80, 0.7);
+  width: 25px;
+  height: 25px;
+
+  transition: fill 100ms ease-out, transform 100ms ease-out;
+}
+
+.modal-filter__title {
+  text-align: center;
+  margin-bottom: 5px;
+
+  text-shadow: #000 2px 0 10px;
+
+  font-size: 20px;
+  line-height: 1.5;
+
+  color: #fff;
+}
+
+.buttons-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+}
+
+.buttons-list:not(:last-child) {
+  margin-bottom: 20px;
 }
 
 .buttons-list__item {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 40px;
-  height: 40px;
+  flex-shrink: 0;
+  padding: 10px;
 
-  border: 2px solid var(--primary-color);
-  border-bottom-right-radius: 15px;
-  border-top-left-radius: 15px;
-  background-color: #353740;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-radius: 15px;
+  border-bottom-right-radius: 0px;
+  background: rgba(0, 0, 0, 0.3);
+  font-size: 14px;
 
-  font-size: 12px;
   color: var(--primary-color);
 
-  transition: background-color var(--animation);
+  transition: color var(--animation), border-color var(--animation);
 
   &:hover,
   &:focus {
-    background-color: rgb(100, 100, 100) !important;
+    border-color: var(--primary-color);
   }
 }
 
-.buttons-list__item-center {
-  width: 70px;
-}
-
-.buttons-list__item-text {
-  transform: rotate(-45deg);
-}
-
-.buttons-list__item-text-center {
-  transform: rotate(-22deg);
+@media screen and (min-width: 380px) {
+  .modal-filter {
+    padding: 30px 15px;
+    max-width: 350px;
+  }
 }

@@ -17,9 +17,60 @@
         </button>
       </form>
 
-      <button class="header-buttons filter" type="button">Filter</button>
+      <button class="header-buttons filter" type="button" data-open-modal>
+        Filter
+      </button>
     </div>
 
     <button class="header-buttons theme" type="button" data-theme>Light</button>
+
+    <div class="modal-filter modal-hidden" data-modal-filter>
+      <button class="modal-filter__close-btn" type="button" data-close-modal>
+        <svg class="modal-filter__close-btn-icon">
+          <use href="./images/symbol-defs.svg#cancel"></use>
+        </svg>
+      </button>
+
+      <p class="modal-filter__title">Image type</p>
+
+      <div class="buttons-list">
+        <button class="buttons-list__item active" type="button" name="all">
+          all
+        </button>
+
+        <button class="buttons-list__item" type="button" name="photo">
+          photo
+        </button>
+
+        <button class="buttons-list__item" type="button" name="illustration">
+          illustration
+        </button>
+
+        <button class="buttons-list__item" type="button" name="vector">
+          vector
+        </button>
+      </div>
+
+      <p class="modal-filter__title">Order</p>
+
+      <div class="buttons-list">
+        <button class="buttons-list__item" type="button">popular</button>
+        <button class="buttons-list__item" type="button">latest</button>
+      </div>
+
+      <p class="modal-filter__title">Editors choice</p>
+
+      <div class="buttons-list">
+        <button class="buttons-list__item" type="button">on</button>
+        <button class="buttons-list__item" type="button">off</button>
+      </div>
+
+      <p class="modal-filter__title">Safesearch</p>
+
+      <div class="buttons-list">
+        <button class="buttons-list__item" type="button">on</button>
+        <button class="buttons-list__item" type="button">off</button>
+      </div>
+    </div>
   </div>
 </header>

@@ -43,7 +43,7 @@ export const getImages = async (find) => {
       key: "34101690-d1afb1df4c50c6485dfb9e98d",
       q: find,
       image_type: imageType,
-      orientation: "horizontal",
+      orientation: "all",
       safesearch: true,
       per_page: perPage,
       page: pageNumber,
