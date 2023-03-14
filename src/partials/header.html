@@ -33,10 +33,8 @@
 
       <p class="modal-filter__title">Image type</p>
 
-      <div class="buttons-list">
-        <button class="buttons-list__item active" type="button" name="all">
-          all
-        </button>
+      <div class="buttons-list" data-image-type>
+        <button class="buttons-list__item" type="button" name="all">all</button>
 
         <button class="buttons-list__item" type="button" name="photo">
           photo
@@ -53,23 +51,31 @@
 
       <p class="modal-filter__title">Order</p>
 
-      <div class="buttons-list">
-        <button class="buttons-list__item" type="button">popular</button>
-        <button class="buttons-list__item" type="button">latest</button>
+      <div class="buttons-list" data-image-order>
+        <button class="buttons-list__item" name="popular" type="button">
+          popular
+        </button>
+        <button class="buttons-list__item" name="latest" type="button">
+          latest
+        </button>
       </div>
 
       <p class="modal-filter__title">Editors choice</p>
 
-      <div class="buttons-list">
-        <button class="buttons-list__item" type="button">on</button>
-        <button class="buttons-list__item" type="button">off</button>
+      <div class="buttons-list" data-image-editors-choice>
+        <button class="buttons-list__item" name="true" type="button">on</button>
+        <button class="buttons-list__item" name="falce" type="button">
+          off
+        </button>
       </div>
 
       <p class="modal-filter__title">Safesearch</p>
 
-      <div class="buttons-list">
-        <button class="buttons-list__item" type="button">on</button>
-        <button class="buttons-list__item" type="button">off</button>
+      <div class="buttons-list" data-image-safesearch>
+        <button class="buttons-list__item" name="true" type="button">on</button>
+        <button class="buttons-list__item" name="falce" type="button">
+          off
+        </button>
       </div>
     </div>
   </div>

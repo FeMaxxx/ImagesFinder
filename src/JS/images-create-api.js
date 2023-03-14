@@ -1,50 +1,22 @@
 import axios from "axios";
+import { imageType, order, editorsChoice, safesearch } from "./filter-modal";
 
 const BACE_URL = "https://pixabay.com/api/";
-const buttonsList = document.querySelector(".buttons-list");
-const { all } = buttonsList.children;
 
-export const perPage = 40;
+const perPage = 40;
 let pageNumber = 1;
-let imageType = "all";
-let prevTdEl = all;
 
-buttonsList.addEventListener("click", photoBtnCheck);
-
-function photoBtnCheck(e) {
-  if (e.target.nodeName === "DIV") {
-    return;
-  }
-
-  if (prevTdEl) {
-    prevTdEl.classList.remove("active");
-  }
-
-  if (e.target.nodeName === "SPAN") {
-    prevTdEl = e.target.parentNode;
-    prevTdEl.classList.add("active");
-
-    imageType = prevTdEl.attributes.name.value;
-
-    return;
-  }
-
-  imageType = e.target.attributes.name.value;
-
-  e.target.classList.add("active");
-
-  prevTdEl = e.target;
-}
-
-export const getImages = async (find) => {
+const getImages = async (find) => {
   const config = {
     baceURL: BACE_URL,
     params: {
       key: "34101690-d1afb1df4c50c6485dfb9e98d",
       q: find,
-      image_type: imageType,
       orientation: "all",
-      safesearch: true,
+      image_type: imageType,
+      order,
+      editors_choice: editorsChoice,
+      safesearch,
       per_page: perPage,
       page: pageNumber,
     },
@@ -59,14 +31,16 @@ export const getImages = async (find) => {
   }
 };
 
-export function setPageNumber() {
+function setPageNumber() {
   pageNumber = 1;
 }
 
-export function plusPageNumber() {
+function plusPageNumber() {
   pageNumber += 1;
 }
 
-export function getPageNumber() {
+function getPageNumber() {
   return pageNumber;
 }
+
+export { perPage, getImages, setPageNumber, plusPageNumber, getPageNumber };
