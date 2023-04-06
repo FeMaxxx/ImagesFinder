@@ -13,6 +13,7 @@ import "notiflix/dist/notiflix-3.2.6.min.css";
 const formEl = document.querySelector("#search-form");
 const bodyEl = document.querySelector("body");
 const { searchQuery } = formEl.elements;
+const loaderEl = document.querySelector(".loader-box");
 
 let totalPages = 0;
 
@@ -23,6 +24,8 @@ const throttleFindMoreImages = throttle(findMoreImages, 500);
 formEl.addEventListener("submit", findImages);
 
 function findImages(e) {
+  loaderEl.style.display = "flex";
+
   e.preventDefault();
   window.scrollTo({
     top: 0,
@@ -43,6 +46,8 @@ function findImages(e) {
     window.addEventListener("scroll", throttleFindMoreImages);
 
     if (images.data.total === 0) {
+      loaderEl.style.display = "none";
+
       Notiflix.Notify.failure(
         "Sorry, there are no images matching your search query. Please try again."
       );
@@ -62,6 +67,8 @@ function findMoreImages() {
     getPageNumber() - 1 >= totalPages &&
     bodyEl.getBoundingClientRect().bottom < 1500
   ) {
+    loaderEl.style.display = "none";
+
     Notiflix.Notify.info("Sorry we have no more images on this topic");
     window.removeEventListener("scroll", throttleFindMoreImages);
 
