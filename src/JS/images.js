@@ -14,6 +14,7 @@ const formEl = document.querySelector("#search-form");
 const bodyEl = document.querySelector("body");
 const { searchQuery } = formEl.elements;
 const loaderEl = document.querySelector(".loader-box");
+const galleryEl = document.querySelector(".gallery");
 
 let totalPages = 0;
 
@@ -24,6 +25,8 @@ const throttleFindMoreImages = throttle(findMoreImages, 500);
 formEl.addEventListener("submit", findImages);
 
 function findImages(e) {
+  galleryEl.style.display = "none";
+  galleryEl.innerHTML = "";
   loaderEl.style.display = "flex";
 
   e.preventDefault();
@@ -42,10 +45,10 @@ function findImages(e) {
   getImages(inputValue).then((images) => {
     const totalHits = images.data.totalHits;
     totalPages = Math.ceil(totalHits / perPage);
-
     window.addEventListener("scroll", throttleFindMoreImages);
+    galleryEl.style.display = "flex";
 
-    if (images.data.total === 0) {
+    if (totalPages <= getPageNumber()) {
       loaderEl.style.display = "none";
 
       Notiflix.Notify.failure(
